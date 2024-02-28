@@ -24,7 +24,7 @@ public final class Microwave {
    * @param args Unused
    */
   public static void main(final String[] args) {
-    final int[] quantityRange = {1, 3};
+    final int[] amountRange = {1, 3};
     final int[] microwaveTimes = {45, 60, 105};
     final float[] timeMultipliers = {1.5f, 2.0f};
 
@@ -55,7 +55,7 @@ public final class Microwave {
       float totalSeconds = 0;
 
       // Only executes if user entered a quantity (1, 3)
-      if (userQuantity >= quantityRange[0] && userQuantity <= quantityRange[1]) {
+      if (userQuantity >= amountRange[0] && userQuantity <= amountRange[1]) {
         // Switch statement to add correct number of seconds depending on item
         switch (microwaveItems[userFood]) {
           case "Pizza":
