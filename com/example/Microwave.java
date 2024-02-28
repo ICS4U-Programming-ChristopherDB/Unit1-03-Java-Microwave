@@ -3,7 +3,7 @@ package com.example;
 import java.util.Scanner;
 
 /**
- * Microwave time calculator
+ * Microwave time calculator.
  *
  * @author Christopher Di Bert
  * @version 1.0
@@ -24,11 +24,14 @@ public final class Microwave {
    * @param args Unused
    */
   public static void main(final String[] args) {
+    final int[] quantityRange = {1, 3};
+    final int[] microwaveTimes = {45, 60, 105};
+    final float[] timeMultipliers = {1.5f, 2.0f};
 
     Scanner sc = new Scanner(System.in);
 
     // Array of microwavable items
-    final String[] microwaveItems = {"Sub", "Pizza", "Soup"};
+    final String[] microwaveItems = {"Pizza", "Sub", "Soup"};
 
     // Displays microwavable items as a list
     System.out.println("~Food~");
@@ -51,20 +54,20 @@ public final class Microwave {
       // Initializes total time in seconds to 0
       float totalSeconds = 0;
 
-      // Only executes if user entered a quantity
-      if (userQuantity >= 1 && userQuantity <= 3) {
+      // Only executes if user entered a quantity (1, 3)
+      if (userQuantity >= quantityRange[0] && userQuantity <= quantityRange[1]) {
         // Switch statement to add correct number of seconds depending on item
         switch (microwaveItems[userFood]) {
-          case "Sub":
-            totalSeconds += 60;
+          case "Pizza":
+            totalSeconds += microwaveTimes[0]; // 45s
             break;
 
-          case "Pizza":
-            totalSeconds += 45;
+          case "Sub":
+            totalSeconds += microwaveTimes[1]; // 60s
             break;
 
           default:
-            totalSeconds += 105;
+            totalSeconds += microwaveTimes[2]; // 105s
             break;
         }
 
@@ -73,10 +76,10 @@ public final class Microwave {
           case 1:
             break;
           case 2:
-            totalSeconds *= 1.5;
+            totalSeconds *= timeMultipliers[0]; // *1.5
             break;
           default:
-            totalSeconds *= 2;
+            totalSeconds *= timeMultipliers[1]; // *2
             break;
         }
 
